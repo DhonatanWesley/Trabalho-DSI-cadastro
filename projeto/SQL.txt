@@ -1,0 +1,7 @@
+CREATE TABLE cadastropet
+(
+  nome character varying(50),
+  raca character varying(50),
+  peso character varying(50),
+  servico character varying(100)
+)

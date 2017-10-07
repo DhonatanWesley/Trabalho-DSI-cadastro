@@ -1,0 +1,54 @@
+<form class="form-horizontal" method="get" action="http://localhost:3000/app/buscar" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <script type="text/javascript">
+
+      function carregar(){
+        let url = 'http://localhost:3000/api/buscar';
+        fetch(url)
+          .then(res => res.json())
+          .then((out) => {
+            addTable(out);
+            console.log('Resultado', out);
+          })
+          .catch(err => console.error(err));
+        }
+
+        function addTable(resultado){
+          var table = document.createElement('table');
+          for( var i = 0; i < resultado.length; i++){
+            var child = resultado[i];
+            if(i === 0){
+              addHeaders(table, Object.keys(child));
+            }
+            var row = table.insertRow();
+            Object.keys(child).forEach(function(k)  {
+              console.log(k);
+              var cell = row.insertCell();
+              cell.appendChild(document.createTextNode(child[k]));
+            })
+          }
+          document.getElementById('tabela').appendChild(table);
+        }
+
+        function addHeaders(table, keys){
+          var row = table.insertRow();
+          for( var i = 0; i < keys.length; i++){
+            var cell = row.insertCell();
+            cell.appendChild(document.createTextNode(keys[i]));
+          }
+        }
+      </script>
+      <div class="form-group">
+        <label class="control-label col-md-8 " for="enviar"></label>
+        <div>
+          <div style="text-align:center">
+            <h2>Buscar</h2>
+            <br>
+            <button id="clickMe" type="button" name="Carregar" onclick="carregar()">Listar</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="tabela"></div>
+    </fieldset>
+</form>

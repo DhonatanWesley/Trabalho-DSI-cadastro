@@ -1,0 +1,42 @@
+<form class="form-horizontal" method="post" action="http://localhost:3000/api/cadastrar" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <div>
+      <h2>Cadastrar</h2>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="nome" style="text-align: right">Nome:</label>
+        <div class="col-md-5">
+          <input id="nome" name="nome" type="text" placeholder="nome" class="form-control input-md" required="">
+          <br>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="raca" style="text-align: right">Raça:</label>
+        <div class="col-md-5">
+          <input id="raca" name="raca" type="text" placeholder="raça" class="form-control input-md" required="">
+          <br>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="peso" style="text-align: right">Peso:</label>
+        <div class="col-md-1">
+          <input id="peso" name="peso" type="text" placeholder="peso" class="form-control input-md" required="">
+        </div>
+        <div class="col-md-12">
+          <br>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="servico" style="text-align: right">Serviço:</label>
+        <div class="col-md-4">
+          <textarea class="form-control" id="servico" name="servico">Ex: Banho e Tosa</textarea>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-8 " for="enviar"></label>
+      <div>
+        <button id="salvar" type="salvar" name="salvar" class="btn btn-success">Cadastrar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
